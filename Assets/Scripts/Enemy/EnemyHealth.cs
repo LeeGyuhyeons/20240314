@@ -110,7 +110,8 @@ public class EnemyHealth : MonoBehaviour
     void Death()
     {
         isDead = true;
-        
+        StageController.instance.AddPoint(10);
+
         transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
 
 
@@ -131,7 +132,6 @@ public class EnemyHealth : MonoBehaviour
 
         isSinking = true;
 
-        
         Destroy(gameObject, 5.0f);
     }
 }
