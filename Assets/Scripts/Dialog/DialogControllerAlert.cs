@@ -28,6 +28,11 @@ public class DialogControllerAlert : DialogController
         //작업 끝난 후 현재의 팝업 창을 관리자에서 제거합니다.
         DialogManager.Instance.Pop();
     }
+    public DialogControllerAlert()
+    {
+
+       DialogManager.Instance.Regist(DialogType.Alert, this);
+    }
 
 
     public override void Awake()
@@ -46,9 +51,9 @@ public class DialogControllerAlert : DialogController
             Debug.LogError("Invaild dialog data!");
             return;//작업 종료
         }
-        //데이터를 안내 데이터로써 받아오겠습니다.
+        //데이터를 안내 데이터로써 받아
         Data = data as DialogDataAlert;
-        //텍스트 값에 데이터의 속성을 적용합니다.
+        //텍스트 값에 데이터의 속성을 적용
         LabelTitle.text = Data.Title;
         LabelMessage.text = Data.Message;
     }
@@ -57,6 +62,6 @@ public class DialogControllerAlert : DialogController
     {
         base.Start();
         //인스턴스를 통해 Alert 타입의 컨트롤러를 다루고 있음을 등록합니다.
-        DialogManager.Instance.Regist(DialogType.Alert, this);
     }
+   
 }

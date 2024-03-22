@@ -35,7 +35,19 @@ public class StageController : MonoBehaviour
 
     public void FinishGame()
     {
-        //Application.LoadLevel(Application.loadedLevel); 구 버전 코드
-        SceneManager.LoadScene("Game");
+        DialogDataConfirm confirm = new DialogDataConfirm("Restart?", "Please press OK if you want to restart the game.",
+        delegate (bool yn)
+        {
+            if (yn)
+                SceneManager.LoadScene("Game");
+
+            else
+
+                Application.Quit();
+
+        });
+            //Application.LoadLevel(Application.loadedLevel); 구 버전 코드
+        //SceneManager.LoadScene("Game");
+        DialogManager.Instance.Push(confirm);
     }
 }

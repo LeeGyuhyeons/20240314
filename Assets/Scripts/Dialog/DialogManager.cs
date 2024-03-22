@@ -106,5 +106,8 @@ public sealed class DialogManager
 
     //현재 팝업 창이 표시되고 있는지를 확인하는 변수
     //_current가 비어있는 경우는 없다고 판단하겠습니다.
-    public bool IsShowing() => _currentDialog != null;
+    public bool IsShowing()
+    {
+        return _currentDialog != null;
+    }
 }
